@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Profile</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<script src="https://use.fontawesome.com/releases/v5.10.2/js/all.js"></script>
+	<link href="style.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://m.w3newbie.com/you-tube.css">
+	<script>
+		
+$(document).ready(function(){
+	
+	// Scrollspy initiation
+	$('body').scrollspy({ 
+		target: '#scroll-spy',
+		offset: 70
+	});
+	// On render, adjust body padding to ensure last Scroll target can reach top of screen
+	var height = $('#howto').innerHeight();
+	var windowHeight = $(window).height();
+	var navHeight = $('nav.navbar').innerHeight();
+	var siblingHeight = $('#howto').nextAll().innerHeight();
+	if(height < windowHeight){
+		$('body').css("padding-bottom", windowHeight-navHeight-height-siblingHeight + "px");
+	}
+	// On window resize, adjust body padding to ensure last Scroll target can reach top of screen
+	$(window).resize(function(event){
+		var height = $('#howto').innerHeight();
+		var windowHeight = $(window).height();
+		var navHeight = $('nav.navbar').innerHeight();
+		var siblingHeight = $('#howto').nextAll().innerHeight();
+		
+		
+		if(height < windowHeight){
+			$('body').css("padding-bottom", windowHeight-navHeight-height-siblingHeight + "px");
+		}
+	});
+	
+	$('nav.navbar a, .scrollTop').click(function(event){
+		// Make sure this.hash has a value before overriding default behavior
+		if (this.hash !== "") {
+			// Prevent default anchor click behavior
+			event.preventDefault();
+			// Store hash (#)
+			var hash = this.hash;
+			
+			// Ensure no section has relevant class
+			$('section').removeClass("focus");
+			// Add class to target
+			$(hash).addClass("focus");
+			// Remove thy class after timeout
+			setTimeout(function(){
+				$(hash).removeClass("focus");
+			}, 2000);			
+			
+    // Using jQuery's animate() method to add smooth page scroll
+    // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area (the speed of the animation)
+			$('html, body').animate({
+				scrollTop: $(hash).offset().top - 69
+			}, 600, function(){
+				
+				// Add hash (#) to URL when done scrolling (default click behavior)
+				window.location.hash = hash;				
+			});
+					
+			// Collapse Navbar for mobile view
+			$(".navbar-collapse").collapse('hide');			
+		}
+	});
+	$(window).scroll(function(){
+		var scrollPos = $('body').scrollTop();
+		if(scrollPos > 0){
+			$('.navbar').addClass('show-color');
+			$('.scrollTop').addClass('show-button');
+		} else{
+			$('.navbar').removeClass('show-color');
+			$('.scrollTop').removeClass('show-button');
+		}
+		
+	});
+});
+
+	</script>
+</head>
+<body data-spy="scroll" data-target="#navbarResponsive">
+
+	<!-- Start Home Section -->
+	<div id="home"> 
+		<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+			<a class="navbar-brand" href="index.html"><img src="img/rana (1).png"></a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarResponsive">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item">
+						<a class="nav-link" href="#home">Home</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#profile">About Me</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#certification">Certification</a>
+					</li> 
+					<li class="nav-item">
+						<a class="nav-link" href="#contact">Contact</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		
+		<!-- back -->
+		<div>
+			<div class="item">
+				<div class="text-center welcome">
+					<h1 class="un">11</h1>
+					<h1 class="welc">welcome</h1>
+					<a href="#contact">Contact</a>
+				</div>
+			</div>
+		</div>
+
+ 	</div>
+	<!-- End Home Section -->
+
+	<!-- Start Profile Section 42 -->
+	<div id="profile">
+			<h3 class="heading text-center padi">About me</h3>
+			<div class="heading-underline"></div>
+			<div class="row padding">
+				<div class="margins text-center">
+					<p>Software engineering student interested in system analyses, Data analysis and UI/UX engineering. My Capstone project about GymsGuider that collect gyms around the world with data visualization and sentiment analysis techniques to saves the time and effort of people for choosing the suitable gym.</p>
+				</div>
+			</div>
+	</div>
+	<!-- End Profile Section -->
+
+	<!-- Start Certification Section -->
+	<div id="certification">
+		<div class="jumbotron ">
+			<h3 class="heading text-center">Certification</h3>
+			<div class="heading-underline"></div>
+			<div class="row padding">
+				<div class="col-md-4">
+					<div class="card text-center">
+						<img class="card-img-top img-cards" src="img/udacity.png">
+						<div class="card-body">
+							<h4>Udacity</h4>
+							<p>Data Foundations Nanodegree Program</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="card text-center">
+						<img class="card-img-top img-cards" src="img/bitDegree.jpg">
+						<div class="card-body">
+							<h4>BitDegree</h4>
+							<p>UI Design</p>
+						</div>
+					</div>
+				</div>	
+
+				<div class="col-md-4">
+					<div class="card text-center">
+						<img class="card-img-top img-cards" src="img/udemy.png">
+						<div class="card-body">
+							<h4>Udemy</h4>
+							<p>UX Design Essentials - Adobe XD Design</p>
+						</div>
+					</div>
+				</div>
+			</div> 
+
+			<div class="row padding">
+					<div class="col-md-4">
+						<div class="card text-center">
+							<img class="card-img-top img-cards" src="img/udacity.png">
+							<div class="card-body">
+								<h4>Udacity</h4>
+								<p>Front-End Web Developer</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="card text-center">
+							<img class="card-img-top img-cards" src="img/udemy.png">
+							<div class="card-body">
+								<h4>Udemy</h4>
+								<p>Scrum Product Owner</p>
+							</div>
+						</div>
+					</div>	
+	
+					<div class="col-md-4">
+						<div class="card text-center">
+							<img class="card-img-top img-cards" src="img/udemy.png">
+							<div class="card-body">
+								<h4>Udemy</h4>
+								<p>Cybersecurity</p>
+							</div>
+						</div>
+					</div>
+				</div> 
+	
+
+		</div>
+	</div>
+	<!-- End Certification Section -->
+
+	<!-- Start Contact Section -->
+	<div id="contact">
+		<footer>
+			<div class="row justify-content-center">
+				<div class="sequare jumbotron"></div>
+				<div class="col-md-5 text-center">
+					<img src="img/rana.png">
+					<p><strong>Contact Info</strong></p>
+					<p>+966507890272<br>ranaaleyoni@gmail.com</p>
+				</div>
+				<hr class="line top-line">
+				<p class="copy">©Rana Profile.</p>
+			</div>
+		</footer>
+	</div>
+	<!-- End Contact Section -->	
+	
+</body>
+</html>
